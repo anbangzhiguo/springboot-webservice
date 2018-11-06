@@ -30,7 +30,7 @@ public class WebServiceConfig {
     @Bean
     public Endpoint endpoint() {
         EndpointImpl endpoint = new EndpointImpl(springBus(), appService);
-        endpoint.getInInterceptors().add(new AuthInterceptor());//添加校验拦截器
+        //endpoint.getInInterceptors().add(new AuthInterceptor());//添加校验拦截器
         endpoint.publish("/Hello");
         return endpoint;
     }
