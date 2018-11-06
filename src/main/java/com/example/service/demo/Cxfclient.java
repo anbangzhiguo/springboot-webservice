@@ -4,6 +4,8 @@ import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.apache.cxf.jaxws.endpoint.dynamic.JaxWsDynamicClientFactory;
 
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Cxfclient {
@@ -29,7 +31,9 @@ public class Cxfclient {
             // 创建一个代理接口实现
             AppService cs = (AppService) jaxWsProxyFactoryBean.create();
             // 数据准备
-            String s = cs.sayHello("ssd", "fdfdf", null);
+            HashMap m = new HashMap();
+            m.put("name","kdkdkdkdkdkdk");
+            String s = cs.sayHello("ssd", "fdfdf", m);
 
             System.out.println("==============返回结果:" + s);
         } catch (Exception e) {

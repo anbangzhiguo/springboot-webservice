@@ -13,7 +13,7 @@ public class AppServiceImpl implements AppService {
     @Override
     public String sayHello(String code, String token, HashMap map){
         System.out.println("==============hello=============");
-        return "hello";
+        return code+","+token+(map==null?"":map.keySet().toString());
     }
 
 }
