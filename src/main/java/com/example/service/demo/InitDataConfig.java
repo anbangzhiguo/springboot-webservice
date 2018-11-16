@@ -40,10 +40,11 @@ public class InitDataConfig implements ApplicationListener<ContextRefreshedEvent
         try {
             ClassPool pool = ClassPool.getDefault();
 //
+
             CtClass cc = pool.get("com.example.service.demo.AppServiceImpl");
             cc.setName("com.example.service.demo.AppServiceImpl3");
             CtClass ccStringType = pool.get("java.lang.String");
-            CtClass ccStringType2 = pool.get("java.math.BigDecimal");
+            CtClass ccStringType2 = pool.get("java.util.ArrayList");
             CtClass ccStringType3 = pool.get("java.util.Date");
 //
 //            // 参数：  1：返回类型  2：方法名称  3：传入参数类型  4：所属类CtClass
@@ -99,10 +100,10 @@ public class InitDataConfig implements ApplicationListener<ContextRefreshedEvent
             ctMethod.getMethodInfo().addAttribute(parameterAtrribute);
 
             //把生成的class文件写入文件
-//            byte[] byteArr = cc.toBytecode();
-//            FileOutputStream fos = new FileOutputStream(new File("D://AppServiceImpl.class"));
-//            fos.write(byteArr);
-//            fos.close();
+            byte[] byteArr = cc.toBytecode();
+            FileOutputStream fos = new FileOutputStream(new File("D://AppServiceImpl3.class"));
+            fos.write(byteArr);
+            fos.close();
 
             Class aClass = cc.toClass();
             EndpointImpl endpoint = new EndpointImpl(springBus, aClass.newInstance());
